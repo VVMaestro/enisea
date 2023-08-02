@@ -4,8 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Enisea',
-  description: 'Eniseas app',
-  
+  description: 'Eniseas app'
 }
 
 export default function RootLayout({

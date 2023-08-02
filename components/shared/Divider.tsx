@@ -1,7 +1,23 @@
-import React from 'react';
+import React, {ComponentPropsWithRef} from 'react';
+import cn from 'classnames';
 
-export function Divider() {
+interface PropTypes extends ComponentPropsWithRef<'article'> {
+  color?: 'default' | 'orange';
+  withPadding?: boolean;
+}
+
+export function Divider(props: PropTypes) {
+  const {color = 'default', withPadding = true} = props;
+
   return (
-    <div className="divider px-5"></div>
+    <div
+      className={cn(
+        'divider',
+        {
+          ['px-5']: withPadding,
+          ['before:bg-orange-400 after:bg-orange-400']: color === 'orange'
+        }
+      )}
+    />
   );
 }

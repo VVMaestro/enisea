@@ -47,11 +47,19 @@
         "chunks": [],
         "async": false
       }
+    },
+    "(app-client)/./components/shared/BurgerMenu.tsx": {
+      "*": {
+        "id": "(sc_client)/./components/shared/BurgerMenu.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
     }
   },
   "edgeSSRModuleMapping": {},
   "clientModules": {
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\client\\components\\error-boundary.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\client\\components\\error-boundary.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
       "name": "*",
       "chunks": [
@@ -59,7 +67,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\error-boundary.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\error-boundary.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
       "name": "*",
       "chunks": [
@@ -67,7 +75,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\client\\components\\app-router.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\client\\components\\app-router.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
       "name": "*",
       "chunks": [
@@ -75,7 +83,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\app-router.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\app-router.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
       "name": "*",
       "chunks": [
@@ -83,7 +91,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\client\\components\\layout-router.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\client\\components\\layout-router.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
       "name": "*",
       "chunks": [
@@ -91,7 +99,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\layout-router.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\layout-router.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
       "name": "*",
       "chunks": [
@@ -99,7 +107,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\client\\components\\render-from-template-context.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\client\\components\\render-from-template-context.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
       "name": "*",
       "chunks": [
@@ -107,7 +115,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\render-from-template-context.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\render-from-template-context.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
       "name": "*",
       "chunks": [
@@ -115,7 +123,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\client\\components\\static-generation-searchparams-bailout-provider.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\client\\components\\static-generation-searchparams-bailout-provider.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
       "name": "*",
       "chunks": [
@@ -123,7 +131,7 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\static-generation-searchparams-bailout-provider.js": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\esm\\client\\components\\static-generation-searchparams-bailout-provider.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
       "name": "*",
       "chunks": [
@@ -131,35 +139,43 @@
       ],
       "async": false
     },
-    "D:\\Projects\\enisea\\app\\globals.css": {
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\client\\image-component.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Code\\projects\\enisea\\node_modules\\next\\dist\\esm\\client\\image-component.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Code\\projects\\enisea\\components\\shared\\BurgerMenu.tsx": {
+      "id": "(app-client)/./components/shared/BurgerMenu.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Code\\projects\\enisea\\app\\globals.css": {
       "id": "(app-client)/./app/globals.css",
       "name": "*",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
-    },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\client\\image-component.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "D:\\Projects\\enisea\\node_modules\\next\\dist\\esm\\client\\image-component.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
     }
   },
   "entryCSSFiles": {
-    "D:\\Projects\\enisea\\app\\layout": [
+    "C:\\Code\\projects\\enisea\\app\\page": [],
+    "C:\\Code\\projects\\enisea\\app\\layout": [
       "static/css/app/layout.css"
-    ],
-    "D:\\Projects\\enisea\\app\\page": []
+    ]
   }
 }
