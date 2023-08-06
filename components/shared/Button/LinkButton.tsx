@@ -1,8 +1,11 @@
-import React, {ComponentPropsWithRef} from 'react';
+import React, {ReactNode} from 'react';
 import {ButtonProps} from './ButtonProps';
 import {getButtonStyles} from './getButtonStyles';
+import Link, {LinkProps} from 'next/link';
 
-interface PropType extends ComponentPropsWithRef<'a'>, ButtonProps {}
+interface PropType extends LinkProps, ButtonProps {
+  children: ReactNode;
+}
 
 export function LinkButton(props: PropType) {
   const {href, onClick, children} = props;
@@ -10,12 +13,12 @@ export function LinkButton(props: PropType) {
   const classNames = getButtonStyles(props);
   
   return (
-    <a
+    <Link
       className={classNames}
       href={href}
       onClick={onClick}
     >
       {children}
-    </a>
+    </Link>
   );
 }

@@ -16,22 +16,33 @@ export function Main() {
           </div>
       </Hero>
       <Divider />
-      <Hero id={'who'}>
-        <Image
-          src={'/IMG_1144.jpg'}
-          width={300}
-          height={0}
-          className={'max-w-sm rounded-lg shadow-2xl'}
-          alt={'Cool image'}
-        />
+      <Hero id={'who'} variant={'column'}>
+        <h2 className={'text-5xl font-bold py-6'}>Кто мы?</h2>
+        <div className={'flex flex-row gap-2'}>
+          <Image
+            key={1}
+            src={'/IMG_1144.jpg'}
+            width={300}
+            height={0}
+            className={'max-w-sm rounded-lg shadow-2xl'}
+            alt={'Cool image'}
+          />
+          <Image
+            key={2}
+            src={'/IMG_1144.jpg'}
+            width={300}
+            height={0}
+            className={'max-w-sm rounded-lg shadow-2xl'}
+            alt={'Cool image'}
+          />
+        </div>
         <div>
-          <h2 className={'text-5xl font-bold'}>Кто мы?</h2>
           <p className={'py-6'}>Мы собрали команду сертифицированных и опытных мастеров, разработали эффективные программы, проверенные на себе, обернули это в первоклассный сервис и теперь хотим размять всю страну.
             Наша главная цель - сделать массаж неотъемлемой частью жизни современного человека.</p>
         </div>
       </Hero>
       <Divider />
-      <Hero variant={'column'}>
+      <Hero id={'advantages'} variant={'column'}>
         <h2 className='text-5xl font-bold text-center mb-10'>Преимущества</h2>
         <div className='text-4xl text-center mb-10'>
           Мы собрали лучшие мировые практики, и даем только то, на что пошли бы сами
