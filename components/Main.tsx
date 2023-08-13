@@ -4,8 +4,11 @@ import {Button} from './shared/Button/Button';
 import {Hero} from './shared/Hero';
 import {Divider} from './shared/Divider';
 import {InfoCard} from './shared/InfoCard';
+import {CloudService} from '../utils/CloudService/CloudService';
 
 export function Main() {
+  const mediaConstructor = new CloudService();
+
   return (
     <main className={'bg-base-200'}>
       <Hero className={'hero-image'} overlay={true}>
@@ -21,7 +24,7 @@ export function Main() {
         <div className={'flex flex-row gap-2'}>
           <Image
             key={1}
-            src={'/IMG_1144.jpg'}
+            src={mediaConstructor.receiveMediaLink('samples/people/smiling-man')}
             width={300}
             height={0}
             className={'max-w-sm rounded-lg shadow-2xl'}
@@ -29,7 +32,7 @@ export function Main() {
           />
           <Image
             key={2}
-            src={'/IMG_1144.jpg'}
+            src={mediaConstructor.receiveMediaLink('samples/people/kitchen-bar')}
             width={300}
             height={0}
             className={'max-w-sm rounded-lg shadow-2xl'}
