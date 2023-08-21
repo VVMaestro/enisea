@@ -1,10 +1,43 @@
 import {UploadApiOptions, v2 as cloudinary} from 'cloudinary';
 
+export interface ISearchFilter {
+  tags: string[];
+}
+
+export interface ISearchResponse {
+  total_count: number;
+  resources: {
+    asset_id: string;
+    public_id: string;
+    secure_url: string;
+    url: string;
+  }[];
+}
+
 export class CloudService {
   constructor() {
     cloudinary.config({
       secure: true
     });
+  }
+
+  public async searchMedia(searchFilter: ISearchFilter): Promise<string[]> {
+    try {
+      const {tags} = searchFilter;
+
+      const response: ISearchResponse = await cloudinary.search
+        .expression(`tags=${tags.join(' AND ')}`)
+        .with_field('tags')
+        .execute();
+
+      const mediaURLs = response.resources.map(({public_id}) => this.receiveMediaLink(public_id));
+
+      return mediaURLs;
+    } catch (error) {
+      console.error(error);
+
+      return [];
+    }
   }
 
   public receiveMediaLink(mediaId: string): string {

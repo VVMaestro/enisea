@@ -5,6 +5,7 @@ import {Hero} from './shared/Hero';
 import {Divider} from './shared/Divider';
 import {InfoCard} from './shared/InfoCard';
 import {CloudService} from '../utils/CloudService/CloudService';
+import {StaffPhotoList} from './StaffPhotoList';
 
 export function Main() {
   const mediaConstructor = new CloudService();
@@ -21,24 +22,7 @@ export function Main() {
       <Divider />
       <Hero id={'who'} variant={'column'}>
         <h2 className={'text-5xl font-bold py-6'}>Кто мы?</h2>
-        <div className={'flex flex-row gap-2'}>
-          <Image
-            key={1}
-            src={mediaConstructor.receiveMediaLink('samples/people/smiling-man')}
-            width={300}
-            height={0}
-            className={'max-w-sm rounded-lg shadow-2xl'}
-            alt={'Cool image'}
-          />
-          <Image
-            key={2}
-            src={mediaConstructor.receiveMediaLink('samples/people/kitchen-bar')}
-            width={300}
-            height={0}
-            className={'max-w-sm rounded-lg shadow-2xl'}
-            alt={'Cool image'}
-          />
-        </div>
+        <StaffPhotoList />
         <div>
           <p className={'py-6'}>Мы собрали команду сертифицированных и опытных мастеров, разработали эффективные программы, проверенные на себе, обернули это в первоклассный сервис и теперь хотим размять всю страну.
             Наша главная цель - сделать массаж неотъемлемой частью жизни современного человека.</p>

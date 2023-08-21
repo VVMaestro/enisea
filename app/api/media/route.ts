@@ -6,6 +6,23 @@ interface PostMediaBody {
   mediaURL: string;
 }
 
+export async function GET(request: NextRequest) {
+  try {
+    const {searchParams} = new URL(request.url);
+    const tag = searchParams.get('tag');
+
+    if (!tag) {
+      return new NextResponse('No tag parameter received', {status: 400});
+    }
+
+    const mediaURLs = await new CloudService().searchMedia({tags: [tag]});
+
+    return NextResponse.json({medias: mediaURLs});
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const {mediaTag, mediaURL}: PostMediaBody = await request.json();

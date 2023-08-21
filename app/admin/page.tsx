@@ -1,8 +1,9 @@
 'use client';
 
-import React, {ChangeEvent, MouseEvent, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {Button} from '../../components/shared/Button/Button';
 import {AsyncFileReader} from '../../utils/AsyncFileReader';
+import {StaffTextEditor} from '../../components/StaffTextEditor';
 
 export default function Page() {
   const [file, setFile] = useState<File>();
@@ -40,18 +41,21 @@ export default function Page() {
   }
 
   return (
-    <article className={'join'}>
-      <input
-        type={'file'}
-        className={'file-input w-full max-w-xs join-item'}
-        onChange={onChangeHandler}
-      />
-      <Button
-        className={'join-item'}
-        onClick={onClickHandler}
-      >
-        {'Загрузить файлы'}
-      </Button>
-    </article>
+    <React.Fragment>
+      <article className={'join'}>
+        <input
+          type={'file'}
+          className={'file-input w-full max-w-xs join-item'}
+          onChange={onChangeHandler}
+        />
+        <Button
+          className={'join-item'}
+          onClick={onClickHandler}
+        >
+          {'Загрузить файлы'}
+        </Button>
+      </article>
+      <StaffTextEditor />
+    </React.Fragment>
   );
 }

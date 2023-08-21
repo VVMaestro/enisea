@@ -24,6 +24,7 @@
     "typescript": "5.1.6"
   },
   "dependencies": {
+    "@vercel/kv": "^0.2.2",
     "classnames": "^2.3.2",
     "cloudinary": "^1.40.0",
     "next": "^13.4.8",
