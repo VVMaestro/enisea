@@ -14,6 +14,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({}, {status: 200});
   } catch (error) {
-    console.log(error);
+    console.error(error);
+
+    return new NextResponse('', {status: 500, statusText: 'Failed to save text'});
   }
 }
