@@ -4,7 +4,6 @@ import React, {ComponentPropsWithRef, MouseEvent, useState} from 'react';
 import cn from 'classnames';
 import {LinkButton} from './Button/LinkButton';
 import {Button} from './Button/Button';
-import Link from 'next/link';
 
 interface PropTypes extends ComponentPropsWithRef<'div'> {
 

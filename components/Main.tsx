@@ -1,33 +1,18 @@
 import React from 'react';
-import Image from 'next/image';
 import {Button} from './shared/Button/Button';
 import {Hero} from './shared/Hero';
 import {Divider} from './shared/Divider';
 import {InfoCard} from './shared/InfoCard';
-import {CloudService} from '../utils/CloudService/CloudService';
-import {StaffPhotoList} from './StaffPhotoList';
+import {StaffHero} from './StaffHero';
+import {SpecialOffer} from './SpecialOffer';
+import {Languages} from '../types/PropTypes';
 
-export function Main() {
-  const mediaConstructor = new CloudService();
-
+export function Main({lang}: {lang: Languages}) {
   return (
     <main className={'bg-base-200'}>
-      <Hero className={'hero-image'} overlay={true}>
-          <div className={'max-w-md'}>
-            <h2 className={'mb-5 text-5xl font-bold'}>Hello there</h2>
-            <p className={'mb-5'}>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            <Button styleType={'accent'} view={'filled'} normalCase={false}>Записаться</Button>
-          </div>
-      </Hero>
+      <SpecialOffer lang={lang} />
       <Divider />
-      <Hero id={'who'} variant={'column'}>
-        <h2 className={'text-5xl font-bold py-6'}>Кто мы?</h2>
-        <StaffPhotoList />
-        <div>
-          <p className={'py-6'}>Мы собрали команду сертифицированных и опытных мастеров, разработали эффективные программы, проверенные на себе, обернули это в первоклассный сервис и теперь хотим размять всю страну.
-            Наша главная цель - сделать массаж неотъемлемой частью жизни современного человека.</p>
-        </div>
-      </Hero>
+      <StaffHero lang={lang} />
       <Divider />
       <Hero id={'advantages'} variant={'column'}>
         <h2 className='text-5xl font-bold text-center mb-10'>Преимущества</h2>

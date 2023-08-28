@@ -1,4 +1,4 @@
-import {headers} from 'next/dist/client/components/headers';
+import {headers} from 'next/headers';
 import {ReadonlyHeaders} from 'next/dist/server/web/spec-extension/adapters/headers';
 
 export class ServerSideFetcher {
@@ -15,7 +15,7 @@ export class ServerSideFetcher {
     return `${protocol}://${host}${path}`;
   }
 
-  public async get(url: string) {
+  public async get<T>(url: string): Promise<T | undefined> {
     try {
       const response = await fetch(this.getFullHostPath(url), {method: 'GET'});
   

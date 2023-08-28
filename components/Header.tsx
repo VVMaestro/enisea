@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from './shared/Button/Button';
 import {Logo} from './shared/Logo';
 import {BurgerMenu} from './shared/BurgerMenu';
+import {LanguageSelect} from './LanguageSelect';
 
 export function Header() {
   return (
@@ -12,7 +12,7 @@ export function Header() {
           <BurgerMenu />
         </div>
         <div className='navbar-end'>
-          <Button styleType={'accent'} view={'outlined'} normalCase={false}>Записаться</Button>
+          <LanguageSelect />
         </div>
       </nav>
     </header>

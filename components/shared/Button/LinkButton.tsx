@@ -1,10 +1,12 @@
+'use client';
+
 import React, {ReactNode} from 'react';
 import {ButtonProps} from './ButtonProps';
 import {getButtonStyles} from './getButtonStyles';
 import Link, {LinkProps} from 'next/link';
 
 interface PropType extends LinkProps, ButtonProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export function LinkButton(props: PropType) {

@@ -1,3 +1,5 @@
+'use client';
+
 import React, {ComponentPropsWithRef} from 'react';
 import {ButtonProps} from './ButtonProps';
 import {getButtonStyles} from './getButtonStyles';
