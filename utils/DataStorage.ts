@@ -18,4 +18,20 @@ export class DataStorage {
       return null;
     }
   }
+
+  public async hashSet(key: string, field: string, value: string) {
+    try {
+      await kv.hset(key, {[field]: value});
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  public async hashGet(key: string, field: string) {
+    try {
+      return kv.hget(key, field);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
