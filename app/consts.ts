@@ -7,3 +7,5 @@ export const DATA_KEY = {
 export const PHOTO_TAG = {
   STAFF_PHOTO: 'staff'
 };
+
+export const SESSION_COOKIE = 'session';

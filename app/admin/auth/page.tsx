@@ -1,9 +1,10 @@
 import React from 'react';
 import {TextInput} from '../../../components/shared/TextInput';
 import crypto from 'crypto';
-import {ServerSideFetcher} from '../../../utils/ServerSideFetcher';
 import {DataStorage} from '../../../utils/DataStorage';
 import {redirect} from 'next/navigation';
+import {cookies} from "next/headers";
+import {SESSION_COOKIE} from "../../consts";
 
 export default function Page() {
   async function checkCredentials(formData: FormData) {
@@ -16,13 +17,25 @@ export default function Page() {
       return {success: false};
     }
 
-    const userPassHash = await new DataStorage().hashGet('adminUsers', login);
+    const storage = new DataStorage();
 
+    const userPassHash = await storage.hashGet('adminUsers', login);
+
+    //readable stream
     const passHash = crypto.createHash('sha256')
       .update(password as string)
       .digest('hex');
 
     if (userPassHash === passHash) {
+      //readable stream
+      const sessionUUID = crypto.randomUUID();
+
+      const sessionTime = 60 * 5;
+
+      await storage.set(`session-${sessionUUID}`, login, {ex: sessionTime});
+
+      cookies().set(SESSION_COOKIE, sessionUUID, {maxAge: sessionTime});
+
       redirect('/admin');
     }
 

@@ -1,9 +1,9 @@
 import {kv} from '@vercel/kv';
 
 export class DataStorage {
-  public async set(key: string, value: string) {
+  public async set(key: string, value: string, options?: Record<string, string | number | boolean>) {
     try {
-      await kv.set(key, value);
+      await kv.set(key, value, options);
     } catch (error) {
       console.error(error);
     }
