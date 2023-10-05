@@ -3,6 +3,7 @@ import {Hero} from './shared/Hero';
 import {Button} from './shared/Button/Button';
 import {ServerText} from './shared/ServerText';
 import {Languages} from '../types/PropTypes';
+import {l10n} from '../utils/l10n';
 
 interface IPropTypes {
   lang: Languages;
@@ -18,7 +19,9 @@ export function SpecialOffer({lang}: IPropTypes) {
         <p className={'mb-5'}>
           <ServerText lang={lang} tag={'specialOffer'} />
         </p>
-        <Button styleType={'accent'} view={'filled'} normalCase={false}>Записаться</Button>
+        <Button styleType={'accent'} view={'filled'} normalCase={false}>
+          {`${l10n('Sign Up', lang)}`}
+        </Button>
       </div>
     </Hero>
   );

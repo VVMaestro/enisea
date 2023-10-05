@@ -4,7 +4,7 @@ import crypto from 'crypto';
 import {DataStorage} from '../../../utils/DataStorage';
 import {redirect} from 'next/navigation';
 import {cookies} from "next/headers";
-import {SESSION_COOKIE} from "../../consts";
+import {SESSION_COOKIE} from "../../../consts";
 
 export default function Page() {
   async function checkCredentials(formData: FormData) {
@@ -30,7 +30,7 @@ export default function Page() {
       //readable stream
       const sessionUUID = crypto.randomUUID();
 
-      const sessionTime = 60 * 5;
+      const sessionTime = 60 * 15;
 
       await storage.set(`session-${sessionUUID}`, login, {ex: sessionTime});
 

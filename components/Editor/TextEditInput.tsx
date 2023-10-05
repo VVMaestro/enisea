@@ -29,10 +29,10 @@ export function TextEditInput(props: IPropTypes) {
   }
 
   return (
-    <div>
+    <div className='flex flex-col items-center gap-2 w-full'>
       {
         view === 'multilined' ? <textarea
-          className={'textarea textarea-bordered'}
+          className='textarea textarea-bordered max-w-xl w-full h-52 resize-none'
           placeholder={placeholder}
           onChange={onChangeHandler}
           value={text}

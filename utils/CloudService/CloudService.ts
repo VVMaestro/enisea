@@ -14,6 +14,13 @@ export interface ISearchResponse {
   }[];
 }
 
+export interface IMediaData {
+  publicId: string;
+  url: string;
+  secureUrl: string;
+  assetId: string;
+}
+
 export class CloudService {
   constructor() {
     cloudinary.config({
@@ -21,7 +28,7 @@ export class CloudService {
     });
   }
 
-  public async searchMedia(searchFilter: ISearchFilter): Promise<string[]> {
+  public async searchMedia(searchFilter: ISearchFilter): Promise<IMediaData[]> {
     try {
       const {tags} = searchFilter;
 
@@ -30,25 +37,28 @@ export class CloudService {
         .with_field('tags')
         .execute();
 
-      const mediaURLs = response.resources.map(({public_id}) => this.receiveMediaLink(public_id));
-
-      return mediaURLs;
+      return response.resources.map(({public_id, url, secure_url, asset_id}) => {
+        return {
+          publicId: public_id,
+          url,
+          secureUrl: secure_url,
+          assetId: asset_id
+        };
+      });
     } catch (error) {
       console.error(error);
 
-      return [];
+      throw new Error(error.message);
     }
   }
 
   public receiveMediaLink(mediaId: string): string {
     try {
-      const response = cloudinary.url(mediaId);
-
-      return response;
+      return cloudinary.url(mediaId);
     } catch (error) {
       console.error(error);
 
-      return '';
+      throw new Error(error.message);
     }
   }
 
@@ -66,12 +76,22 @@ export class CloudService {
   
     try {
       const response = await cloudinary.uploader.upload(file, options);
-  
-      const mediaId = response.public_id;
-  
-      return mediaId;
+
+      return response.public_id;
     } catch (error) {
       console.error(error);
+
+      throw new Error(error.message);
+    }
+  }
+
+  public async deleteMedia(mediaIds: string[]) {
+    try {
+      return await cloudinary.api.delete_resources(mediaIds);
+    } catch (error) {
+      console.log(error);
+
+      throw new Error(error.message);
     }
   }
 }

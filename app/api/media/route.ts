@@ -15,11 +15,11 @@ export async function GET(request: NextRequest) {
       return new NextResponse('No tag parameter received', {status: 400});
     }
 
-    const mediaURLs = await new CloudService().searchMedia({tags: [tag]});
+    const medias = await new CloudService().searchMedia({tags: [tag]});
 
-    return NextResponse.json({medias: mediaURLs});
+    return NextResponse.json({medias: medias});
   } catch (error) {
-    console.error(error);
+    return NextResponse.error();
   }
 }
 
@@ -34,5 +34,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({mediaId}, {status: 200});
   } catch (error) {
     return NextResponse.error();
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const {searchParams} = new URL(request.url);
+
+    const publicMediaId = searchParams.get('mediaId');
+
+    if (!publicMediaId) {
+      return new NextResponse('No media id received', {status: 400});
+    }
+
+    await new CloudService().deleteMedia([publicMediaId]);
+
+    return NextResponse.json('Media successfully deleted', {status: 200});
+  } catch (error) {
+    return NextResponse.error()
   }
 }

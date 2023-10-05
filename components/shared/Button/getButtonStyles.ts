@@ -8,10 +8,11 @@ export function getButtonStyles(props: ButtonProps) {
     size = 'md',
     normalCase = true,
     square = false,
+    circle = false,
     className = ''
   } = props;
 
-  const classNames = cn(
+  return cn(
     'btn',
     className,
     {
@@ -23,10 +24,10 @@ export function getButtonStyles(props: ButtonProps) {
       ['btn-sm']: size === 'sm',
       ['btn-md']: size === 'md',
       ['btn-lg']: size === 'lg',
+      ['btn-xs']: size === 'xs',
       ['normal-case']: normalCase,
-      ['btn-square']: square  
+      ['btn-square']: square,
+      ['btn-circle']: circle
     }
   );
-
-  return classNames;
 }

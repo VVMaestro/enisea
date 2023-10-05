@@ -4,12 +4,15 @@ import React, {ComponentPropsWithRef, MouseEvent, useState} from 'react';
 import cn from 'classnames';
 import {LinkButton} from './Button/LinkButton';
 import {Button} from './Button/Button';
+import {l10n} from '../../utils/l10n';
+import {Languages} from '../../types/PropTypes';
 
 interface PropTypes extends ComponentPropsWithRef<'div'> {
-
+  lang: Languages;
 }
 
 export function BurgerMenu(props: PropTypes) {
+  const {lang} = props;
   const [isOpen, setIsOpen] = useState(false); 
 
   function onMenuItemClick(event: MouseEvent<HTMLAnchorElement>) {
@@ -46,7 +49,7 @@ export function BurgerMenu(props: PropTypes) {
               href={'#who'}
               styleType={'ghost'}
             >
-              Кто мы?
+              {`${l10n('Who we are', lang)}?`}
             </LinkButton>
           </li>
           <li>
@@ -56,7 +59,7 @@ export function BurgerMenu(props: PropTypes) {
               href={'#advantages'}
               styleType={'ghost'}
             >
-              Преимущества
+              {`${l10n('Advantages', lang)}`}
             </LinkButton>
           </li>
           <li>
@@ -66,7 +69,7 @@ export function BurgerMenu(props: PropTypes) {
               href={'#services'}
               styleType={'ghost'}
             >
-              Услуги
+              {`${l10n('Services', lang)}`}
             </LinkButton>
           </li>
           <li>
@@ -76,7 +79,7 @@ export function BurgerMenu(props: PropTypes) {
               href={'#'}
               styleType={'ghost'}
             >
-              Акции
+              {`${l10n('Promotions', lang)}`}
             </LinkButton>
           </li>
           <li>
@@ -86,7 +89,7 @@ export function BurgerMenu(props: PropTypes) {
               href={'#'}
               styleType={'ghost'}
             >
-              Команда
+              {`${l10n('Team', lang)}`}
             </LinkButton>
           </li>
           <li>
@@ -96,7 +99,7 @@ export function BurgerMenu(props: PropTypes) {
               href={'#'}
               styleType={'ghost'}
             >
-              Контакты
+              {`${l10n('Contacts', lang)}`}
             </LinkButton>
           </li>
         </ul>

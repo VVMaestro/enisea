@@ -3,6 +3,7 @@ import {Header} from '../../components/Header';
 import {Main} from '../../components/Main';
 import {Footer} from '../../components/Footer';
 import {Languages} from '../../types/PropTypes';
+import {LANGUAGE} from '../../consts';
 
 interface IPropTypes {
   params: {
@@ -11,15 +12,15 @@ interface IPropTypes {
 }
 
 export default function Page({params}: IPropTypes) {
-  let lang: Languages = (params.options?.[0] ?? 'en') as Languages;
+  let lang: Languages = (params.options?.[0] ?? LANGUAGE.EN) as Languages;
 
-  if (!['en', 'cz'].includes(lang)) {
-    lang = 'en';
+  if (![LANGUAGE.EN, LANGUAGE.CZ].includes(lang)) {
+    lang = LANGUAGE.EN;
   }
 
   return (
     <Fragment>
-      <Header />
+      <Header lang={lang} />
       <Main lang={lang} />
       <Footer />
     </Fragment>

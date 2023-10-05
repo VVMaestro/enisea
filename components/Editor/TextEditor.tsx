@@ -18,13 +18,11 @@ export async function TextEditor({lang, textTag, placeholder = '', inputType = '
   const initialText = textResponse?.text ?? '';
 
   return (
-    <article> 
-      <TextEditInput
-        placeholder={placeholder} 
-        initialText={initialText} 
-        textKey={textKey}
-        view={inputType === 'textarea' ? 'multilined' : 'onelined'} 
-      />
-    </article>
+    <TextEditInput
+      placeholder={placeholder}
+      initialText={initialText}
+      textKey={textKey}
+      view={inputType === 'textarea' ? 'multilined' : 'onelined'}
+    />
   );
 }

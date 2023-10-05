@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from 'next/server';
-import {SESSION_COOKIE} from './app/consts';
+import {SESSION_COOKIE} from './consts';
 import {DataStorage} from './utils/DataStorage';
 
 export const config = {

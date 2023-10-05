@@ -1,3 +1,5 @@
+import {Languages} from './types/PropTypes';
+
 export const DATA_KEY = {
   STAFF_TEXT: 'staffText',
   SPECIAL_OFFER: 'specialOffer',
@@ -5,7 +7,12 @@ export const DATA_KEY = {
 };
 
 export const PHOTO_TAG = {
-  STAFF_PHOTO: 'staff'
+  WHO_PHOTO: 'whoWeAre'
 };
 
 export const SESSION_COOKIE = 'session';
+
+export const LANGUAGE: Record<string, Languages> = {
+  EN: 'en',
+  CZ: 'cz'
+};

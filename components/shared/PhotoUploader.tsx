@@ -6,10 +6,11 @@ import {Button} from './Button/Button';
 
 interface IPropTypes extends ComponentPropsWithRef<'article'> {
   photoCategory: string;
+  uploadCallback?: VoidFunction;
 }
 
 export function PhotoUploader(props: IPropTypes) {
-  const {photoCategory} = props;
+  const {photoCategory, uploadCallback} = props;
 
   const [file, setFile] = useState<File>();
 
@@ -22,7 +23,7 @@ export function PhotoUploader(props: IPropTypes) {
       const mediaURL = await new AsyncFileReader().readFile(file);
 
       if (typeof mediaURL === 'string') {
-        const mediaId = await fetch('/api/media', {
+        await fetch('/api/media', {
           method: 'POST',
           body: JSON.stringify({
             mediaURL,
@@ -30,7 +31,7 @@ export function PhotoUploader(props: IPropTypes) {
           })
         });
 
-        console.log(mediaId);
+        uploadCallback?.();
       }
     } catch (error) {
       console.log(error);
