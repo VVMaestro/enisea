@@ -6,6 +6,7 @@ import {AdminCard} from '../../components/shared/AdminCard';
 import {BrowserWindow} from '../../components/shared/BrowserWindow';
 import {WhoPhotoList} from '../../components/WhoPhotoList';
 import {WhoEditPhotoList} from '../../components/WhoEditPhotoList';
+import {AdvantagesEditor} from '../../components/AdvantagesEditor';
 
 export default function Page() {
   return (
@@ -46,16 +47,27 @@ export default function Page() {
           </AdminCard>
         </div>
       </BrowserWindow>
+      <BrowserWindow toolbar={'Who we are'}>
+        <AdminCard title={'Text in english'}>
+          <TextEditor placeholder={'Who we are text in english'} textTag={DATA_KEY.STAFF_TEXT} lang={'en'}/>
+        </AdminCard>
+        <AdminCard title={'Text in czeck'}>
+          <TextEditor placeholder={'Who we are text in czeck'} textTag={DATA_KEY.STAFF_TEXT} lang={'cz'}/>
+        </AdminCard>
+      </BrowserWindow>
       <BrowserWindow>
         <WhoEditPhotoList />
       </BrowserWindow>
-      <BrowserWindow toolbar={'Who we are'}>
+      <BrowserWindow toolbar={'Advantages'}>
         <AdminCard title={'Text in english'}>
-          <TextEditor placeholder={'Staff text in english'} textTag={DATA_KEY.STAFF_TEXT} lang={'en'}/>
+          <TextEditor placeholder={'Advantages text in english'} textTag={DATA_KEY.ADVANTAGES} lang={'en'}/>
         </AdminCard>
         <AdminCard title={'Text in czeck'}>
-          <TextEditor placeholder={'Staff text in czeck'} textTag={DATA_KEY.STAFF_TEXT} lang={'cz'}/>
+          <TextEditor placeholder={'Advantages text in czeck'} textTag={DATA_KEY.ADVANTAGES} lang={'cz'}/>
         </AdminCard>
+      </BrowserWindow>
+      <BrowserWindow toolbar={'Advantages List'}>
+        <AdvantagesEditor />
       </BrowserWindow>
     </main>
   );

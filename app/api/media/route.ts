@@ -44,7 +44,7 @@ export async function DELETE(request: NextRequest) {
     const publicMediaId = searchParams.get('mediaId');
 
     if (!publicMediaId) {
-      return new NextResponse('No media id received', {status: 400});
+      return new NextResponse(null, {status: 400, statusText: 'No media id received'});
     }
 
     await new CloudService().deleteMedia([publicMediaId]);

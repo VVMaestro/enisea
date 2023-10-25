@@ -21,13 +21,11 @@ export default function Page() {
 
     const userPassHash = await storage.hashGet('adminUsers', login);
 
-    //readable stream
     const passHash = crypto.createHash('sha256')
       .update(password as string)
       .digest('hex');
 
     if (userPassHash === passHash) {
-      //readable stream
       const sessionUUID = crypto.randomUUID();
 
       const sessionTime = 60 * 15;

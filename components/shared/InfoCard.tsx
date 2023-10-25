@@ -1,5 +1,6 @@
 import React, {ComponentPropsWithRef, ReactHTMLElement, ReactNode} from 'react';
 import {Divider} from './Divider';
+import cn from 'classnames';
 
 interface PropTypes extends ComponentPropsWithRef<'article'> {
   title: string;
@@ -24,7 +25,7 @@ export function InfoCard(props: PropTypes) {
   const {children, title, className, headLevel} = props;
   
   return (
-    <article className={className}>
+    <article className={cn('text-center max-w-xs', className)}>
       {getHeadTag(title, headLevel)}
       <Divider color={'orange'} withPadding={false} />
       <p>

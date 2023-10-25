@@ -22,7 +22,7 @@ interface IPropTypes extends ComponentPropsWithRef<'ul'> {
 
 export function MediaList({medias, tiny, action}: IPropTypes) {
   return (
-    <ul className={'flex flex-row items-center gap-2 list-none'}>
+    <ul className={'flex flex-row items-center gap-2 list-none flex-wrap justify-center'}>
       {
         medias.map((media, index) => (
           <li key={index}>
@@ -30,7 +30,7 @@ export function MediaList({medias, tiny, action}: IPropTypes) {
               disable={!action}
               element={(
                 <Button size={'xs'} circle styleType={'secondary'} onClick={() => action?.(media)}>
-                  <CrossIcon />
+                  <CrossIcon/>
                 </Button>
               )}
             >
