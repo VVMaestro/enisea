@@ -7,20 +7,10 @@ import {AdvantageCreateData, AdvantagesDataResponse, IAdvantageData} from '../..
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const storage = new DataStorage();
 
-  const advantagesResponse: AdvantagesDataResponse = await storage.jsonGet(DATA_KEY.ADVANTAGES_DATA, '$');
+  const advantagesList = await storage.jsonGetDataWithIndex<IAdvantageData>(DATA_KEY.ADVANTAGES_DATA, 'advantageId');
 
-  if (!advantagesResponse || advantagesResponse === 'nil') {
-    return new NextResponse(null, {status: 404, statusText: 'No advantages data found'});
-  }
-
-  const [advantagesRecord] = advantagesResponse;
-  const advantagesList: IAdvantageData[] = [];
-
-  for (const [advantageId, advantage] of Object.entries(advantagesRecord)) {
-    advantagesList.push({
-      ...advantage,
-      advantageId
-    });
+  if (!advantagesList.length) {
+    console.warn('No advantages data found');
   }
 
   return NextResponse.json({advantages: advantagesList});
@@ -36,25 +26,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   const advantageUUID = crypto.randomUUID();
   const storage = new DataStorage();
 
-  const existStructure: AdvantagesDataResponse = await storage.jsonGet(DATA_KEY.ADVANTAGES_DATA, '$');
-
-  let jsonResponse: 'OK' | null | undefined;
-
-  if (!existStructure || existStructure === 'nil') {
-    jsonResponse = await storage.jsonSet(DATA_KEY.ADVANTAGES_DATA, '$', {[advantageUUID]: {en, cz}});
-  } else {
-    let lastAdvantageIndex = 0;
-    let lastAdvantage: IAdvantageData | null = null;
-
-    for (const advantage of Object.values(existStructure[0])) {
-      if (advantage.index > lastAdvantageIndex) {
-        lastAdvantageIndex = advantage.index;
-        lastAdvantage = advantage;
-      }
-    }
-
-    jsonResponse = await storage.jsonSet(DATA_KEY.ADVANTAGES_DATA, `$["${advantageUUID}"]`, {en, cz, index: lastAdvantageIndex + 1});
-  }
+  let jsonResponse = await storage.jsonSetDataWithIndex(DATA_KEY.ADVANTAGES_DATA, advantageUUID, {en, cz});
 
   if (jsonResponse !== 'OK') {
     return new NextResponse(null, {status: 500, statusText: `Failed to create an advantage with title and desc: ${en.title}, ${en.desc}`});

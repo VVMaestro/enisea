@@ -7,7 +7,11 @@ import {Loading} from './Loading';
 
 interface IPropTypes extends ComponentPropsWithRef<'article'> {
   photoCategory: string;
-  uploadCallback?: VoidFunction;
+  uploadCallback?: (mediaId: string) => void;
+}
+
+interface UploadBody {
+  mediaId: string;
 }
 
 export function PhotoUploader(props: IPropTypes) {
@@ -26,7 +30,7 @@ export function PhotoUploader(props: IPropTypes) {
       const mediaURL = await new AsyncFileReader().readFile(file);
 
       if (typeof mediaURL === 'string') {
-        await fetch('/api/media', {
+        const uploadResponse = await fetch('/api/media', {
           method: 'POST',
           body: JSON.stringify({
             mediaURL,
@@ -34,10 +38,14 @@ export function PhotoUploader(props: IPropTypes) {
           })
         });
 
-        uploadCallback?.();
+        if (uploadResponse.ok) {
+          const {mediaId}: UploadBody = await uploadResponse.json();
+
+          uploadCallback?.(mediaId);
+        }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -64,7 +72,7 @@ export function PhotoUploader(props: IPropTypes) {
           className={'join-item'}
           onClick={onClickHandler}
         >
-          {'Загрузить файлы'}
+          {'Upload'}
         </Button>
       </article>
     </div>

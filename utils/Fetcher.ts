@@ -1,5 +1,5 @@
 export class Fetcher {
-  public async get(url: string) {
+  public async get<T>(url: string): Promise<T | undefined> {
     try {
       const response = await fetch(url, {method: 'GET'});
 

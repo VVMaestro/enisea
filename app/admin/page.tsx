@@ -7,6 +7,7 @@ import {BrowserWindow} from '../../components/shared/BrowserWindow';
 import {WhoPhotoList} from '../../components/WhoPhotoList';
 import {WhoEditPhotoList} from '../../components/WhoEditPhotoList';
 import {AdvantagesEditor} from '../../components/AdvantagesEditor';
+import {ProgramsEditor} from '../../components/ProgramsEditor';
 
 export default function Page() {
   return (
@@ -68,6 +69,9 @@ export default function Page() {
       </BrowserWindow>
       <BrowserWindow toolbar={'Advantages List'}>
         <AdvantagesEditor />
+      </BrowserWindow>
+      <BrowserWindow toolbar={'Programs'}>
+        <ProgramsEditor />
       </BrowserWindow>
     </main>
   );

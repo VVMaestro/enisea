@@ -90,8 +90,6 @@ export class CloudService {
       return await cloudinary.api.delete_resources(mediaIds);
     } catch (error) {
       console.log(error);
-
-      throw new Error(error.message);
     }
   }
 }

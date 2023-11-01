@@ -1,74 +1,35 @@
 import {Hero} from './shared/Hero';
-import React from 'react';
+import React, {ComponentPropsWithRef} from 'react';
 import Image from 'next/image';
+import {ProgramItem} from './ProgramItem';
+import {ServerSideFetcher} from '../utils/ServerSideFetcher';
+import {IProgramData} from '../types/IProgram';
+import {Languages} from '../types/PropTypes';
 
-export const ProgramsHero = () => {
+interface IProps extends ComponentPropsWithRef<'ul'> {
+  lang: Languages;
+}
+
+export const ProgramsHero = async ({lang}: IProps) => {
+  const response = await new ServerSideFetcher().get<{programs: IProgramData[]}>('/api/program');
+
   return (
     <Hero variant={'column'} id={'services'}>
       <h2 className='text-5xl font-bold text-center mb-10'>Услуги</h2>
-      <ul className='list-inside list-none flex flex-wrap max-w-2xl justify-center gap-8'>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <Image width={200} height={0} src={'/brush_icon_257195.svg'} alt={'First Program'} />
-          <div className='text-center'>
-            Первая услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill={'rgb(51 65 85 / var(--tw-bg-opacity))'} />
-          </svg>
-          <div className='text-center'>
-            Вторая услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill='rgb(51 65 85 / var(--tw-bg-opacity))' />
-          </svg>
-          <div className='text-center'>
-            Третье услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill='rgb(51 65 85 / var(--tw-bg-opacity))' />
-          </svg>
-          <div className='text-center'>
-            Четвёртая услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill='rgb(51 65 85 / var(--tw-bg-opacity))' />
-          </svg>
-          <div className='text-center'>
-            Пятая услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill='rgb(51 65 85 / var(--tw-bg-opacity))' />
-          </svg>
-          <div className='text-center'>
-            Шестая услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill='rgb(51 65 85 / var(--tw-bg-opacity))' />
-          </svg>
-          <div className='text-center'>
-            Седьмая услуга
-          </div>
-        </li>
-        <li className='flex flex-col justify-center w-32 transition cursor-pointer hover:scale-90'>
-          <svg viewBox='0 0 100 100' className='mb-5'>
-            <circle cx='50' cy='50' r='40' fill='rgb(51 65 85 / var(--tw-bg-opacity))' />
-          </svg>
-          <div className='text-center'>
-            Восьмая услуга
-          </div>
-        </li>
+      <ul className='list-none flex flex-wrap max-w-5xl justify-center items-start gap-8'>
+        {
+          (response?.programs ?? [])
+            .sort(({index: index1}, {index: index2}) => index1 - index2)
+            .map(({iconURL, index, ...data}) => (
+              <li key={index}>
+                <ProgramItem
+                  imgSrc={iconURL}
+                  title={data[lang].title}
+                  desc={data[lang].desc}
+                />
+              </li>
+            ))
+        }
       </ul>
     </Hero>
   );

@@ -1,4 +1,8 @@
 import {kv} from '@vercel/kv';
+import {DATA_KEY} from '../consts';
+import {JsonStorageResponse} from '../types/JsonStorageResponse';
+import {IAdvantageData} from '../types/IAdvantage';
+import {NextResponse} from 'next/server';
 
 export class DataStorage {
   public async set(key: string, value: string, options?: Record<string, string | number | boolean>) {
@@ -91,11 +95,54 @@ export class DataStorage {
     }
   }
 
-  public async jsonDelete(key: string, path?: string) {
+  public async jsonDelete(key: string, path?: string){
     try {
       return kv.json.del(key, path)
     } catch (error: unknown) {
       console.error(error);
     }
+  }
+
+  public async jsonGetDataWithIndex<T extends object>(storeKey: string, idKey: string): Promise<T[]> {
+    const response: JsonStorageResponse<T> = await this.jsonGet(storeKey, '$');
+
+    if (!response || response === 'nil') {
+      return [];
+    }
+
+    const [record] = response;
+    const dataList: T[] = [];
+
+    for (const [id, dataItem] of Object.entries(record)) {
+      dataList.push({
+        ...dataItem,
+        [idKey]: id
+      });
+    }
+
+    return dataList;
+  }
+
+  public async jsonSetDataWithIndex<T extends Record<string, unknown>>(storeKey: string, dataKey: string, data: Record<string, unknown>) {
+    const existStructure: JsonStorageResponse<T> = await this.jsonGet(storeKey, '$');
+
+    let jsonResponse: 'OK' | null | undefined;
+
+    if (!existStructure || existStructure === 'nil') {
+      jsonResponse = await this.jsonSet(storeKey, '$', {[dataKey]: {...data, index: 1}});
+    } else {
+      let lastIndex = 0;
+
+      for (const dataItem of Object.values(existStructure[0])) {
+        if (dataItem.index > lastIndex) {
+          lastIndex = dataItem.index;
+        }
+      }
+
+      jsonResponse = await this.jsonSet(storeKey, `$["${dataKey}"]`, {...data, index: lastIndex + 1});
+    }
+
+
+    return jsonResponse;
   }
 }

@@ -54,9 +54,9 @@ export const AdvantagesEditor = () => {
     try {
       setLoading(true);
 
-      const {advantages}: { advantages: IAdvantageData[] } = await fetcher.get('api/advantage');
+      const advantagesResponse = await fetcher.get<{ advantages: IAdvantageData[] }>('api/advantage');
 
-      setAdvantagesList(advantages);
+      setAdvantagesList(advantagesResponse?.advantages ?? []);
     } catch (error: unknown) {
       console.log(error);
     } finally {

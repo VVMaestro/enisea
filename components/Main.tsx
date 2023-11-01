@@ -22,7 +22,7 @@ export function Main({lang}: {lang: Languages}) {
 
       <Divider />
 
-      <ProgramsHero />
+      <ProgramsHero lang={lang} />
     </main>
   );
 }
