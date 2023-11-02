@@ -16,9 +16,9 @@ export const WhoEditPhotoList = () => {
   const fetchMedia = async () => {
     setLoading(true);
 
-    const mediasResponse = await new Fetcher().get(`/api/media/?tag=${PHOTO_TAG.WHO_PHOTO}`);
+    const mediasResponse = await new Fetcher().get<{ medias: IMedia[] }>(`/api/media/?tag=${PHOTO_TAG.WHO_PHOTO}`);
 
-    setMedias(mediasResponse.medias);
+    setMedias(mediasResponse?.medias ?? []);
     setLoading(false);
   };
 
