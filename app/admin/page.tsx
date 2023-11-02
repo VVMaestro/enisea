@@ -1,7 +1,7 @@
 import React from 'react';
 import {PhotoUploader} from '../../components/shared/PhotoUploader';
 import {TextEditor} from '../../components/Editor/TextEditor';
-import {DATA_KEY, PHOTO_TAG} from '../../consts';
+import {DATA_KEY, LANGUAGE, PHOTO_TAG} from '../../consts';
 import {AdminCard} from '../../components/shared/AdminCard';
 import {BrowserWindow} from '../../components/shared/BrowserWindow';
 import {WhoPhotoList} from '../../components/WhoPhotoList';
@@ -19,14 +19,14 @@ export default function Page() {
               inputType={'text'}
               placeholder={'Title in english'}
               textTag={DATA_KEY.SPECIAL_OFFER_TITLE}
-              lang={'en'}
+              lang={LANGUAGE.EN}
             />
           </AdminCard>
           <AdminCard title={'Text in english'}>
             <TextEditor
               placeholder={'Special Offer text in english'}
               textTag={DATA_KEY.SPECIAL_OFFER}
-              lang={'en'}
+              lang={LANGUAGE.EN}
             />
           </AdminCard>
         </div>
@@ -36,24 +36,32 @@ export default function Page() {
               inputType={'text'}
               placeholder={'Special Offer title in czeck'}
               textTag={DATA_KEY.SPECIAL_OFFER_TITLE}
-              lang={'cz'}
+              lang={LANGUAGE.CZ}
             />
           </AdminCard>
           <AdminCard title={'Text in czeck'}>
             <TextEditor
               placeholder={'Special Offer text in czeck'}
               textTag={DATA_KEY.SPECIAL_OFFER}
-              lang={'cz'}
+              lang={LANGUAGE.CZ}
             />
           </AdminCard>
         </div>
       </BrowserWindow>
       <BrowserWindow toolbar={'Who we are'}>
         <AdminCard title={'Text in english'}>
-          <TextEditor placeholder={'Who we are text in english'} textTag={DATA_KEY.STAFF_TEXT} lang={'en'}/>
+          <TextEditor
+            placeholder={'Who we are text in english'}
+            textTag={DATA_KEY.STAFF_TEXT}
+            lang={LANGUAGE.EN}
+          />
         </AdminCard>
         <AdminCard title={'Text in czeck'}>
-          <TextEditor placeholder={'Who we are text in czeck'} textTag={DATA_KEY.STAFF_TEXT} lang={'cz'}/>
+          <TextEditor
+            placeholder={'Who we are text in czeck'}
+            textTag={DATA_KEY.STAFF_TEXT}
+            lang={LANGUAGE.CZ}
+          />
         </AdminCard>
       </BrowserWindow>
       <BrowserWindow>
@@ -61,16 +69,40 @@ export default function Page() {
       </BrowserWindow>
       <BrowserWindow toolbar={'Advantages'}>
         <AdminCard title={'Text in english'}>
-          <TextEditor placeholder={'Advantages text in english'} textTag={DATA_KEY.ADVANTAGES} lang={'en'}/>
+          <TextEditor
+            placeholder={'Advantages text in english'}
+            textTag={DATA_KEY.ADVANTAGES}
+            lang={LANGUAGE.EN}
+          />
         </AdminCard>
         <AdminCard title={'Text in czeck'}>
-          <TextEditor placeholder={'Advantages text in czeck'} textTag={DATA_KEY.ADVANTAGES} lang={'cz'}/>
+          <TextEditor
+            placeholder={'Advantages text in czeck'}
+            textTag={DATA_KEY.ADVANTAGES}
+            lang={LANGUAGE.CZ}
+          />
         </AdminCard>
       </BrowserWindow>
       <BrowserWindow toolbar={'Advantages List'}>
         <AdvantagesEditor />
       </BrowserWindow>
       <BrowserWindow toolbar={'Programs'}>
+        <AdminCard title={'Text in english'}>
+          <TextEditor
+            placeholder={'Programs text in english'}
+            textTag={DATA_KEY.PROGRAMS}
+            lang={LANGUAGE.EN}
+          />
+        </AdminCard>
+        <AdminCard title={'Text in czeck'}>
+          <TextEditor
+            placeholder={'Programs text in czeck'}
+            textTag={DATA_KEY.PROGRAMS}
+            lang={LANGUAGE.CZ}
+          />
+        </AdminCard>
+      </BrowserWindow>
+      <BrowserWindow toolbar={'Programs List'}>
         <ProgramsEditor />
       </BrowserWindow>
     </main>

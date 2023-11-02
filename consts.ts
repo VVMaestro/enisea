@@ -6,6 +6,7 @@ export const DATA_KEY = {
   SPECIAL_OFFER_TITLE: 'specialOfferTitle',
   ADVANTAGES: 'advantages',
   ADVANTAGES_DATA: 'advantagesData',
+  PROGRAMS: 'programs',
   PROGRAMS_DATA: 'programsData'
 } as const;
 

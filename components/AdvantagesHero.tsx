@@ -18,9 +18,11 @@ export async function AdvantagesHero({lang}: IProps) {
   return (
     <Hero id={'advantages'} variant={'column'}>
       <h2 className='text-5xl font-bold text-center mb-10'>{`${l10n('Advantages', lang)}`}</h2>
+
       <div className='text-4xl text-center mb-20'>
         <ServerText tag={DATA_KEY.ADVANTAGES} lang={lang} />
       </div>
+
       <ul className='list-none flex justify-center gap-4'>
         {
           (response?.advantages ?? [])

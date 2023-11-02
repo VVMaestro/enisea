@@ -33,7 +33,8 @@ export class Translator {
       'services': 'služby',
       'promotions': 'povýšení',
       'team': 'tým',
-      'contacts': 'kontakty'
+      'contacts': 'kontakty',
+      'massage programs': 'masážní programy'
     };
   }
 }
