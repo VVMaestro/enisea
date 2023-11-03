@@ -4,6 +4,8 @@ import React, {ChangeEvent, ComponentPropsWithRef, useState} from 'react';
 import {AsyncFileReader} from '../../utils/AsyncFileReader';
 import {Button} from './Button/Button';
 import {Loading} from './Loading';
+import {Uploader} from './Uploader';
+import {Join} from './Join';
 
 interface IPropTypes extends ComponentPropsWithRef<'article'> {
   photoCategory: string;
@@ -58,23 +60,23 @@ export function PhotoUploader(props: IPropTypes) {
   }
 
   return (
-    <div className='relative'>
+    <article className='relative'>
       {loading && <Loading />}
 
-      <article className={'join'}>
-        <input
-          type={'file'}
-          className={'file-input w-full max-w-xs join-item'}
+      <Join items={[
+        <Uploader
+          key={1}
           onChange={onChangeHandler}
-        />
+        />,
 
         <Button
+          key={2}
           className={'join-item'}
           onClick={onClickHandler}
         >
           {'Upload'}
         </Button>
-      </article>
-    </div>
+      ]} />
+    </article>
   )
 }

@@ -34,7 +34,9 @@ export class Translator {
       'promotions': 'povýšení',
       'team': 'tým',
       'contacts': 'kontakty',
-      'massage programs': 'masážní programy'
+      'massage programs': 'masážní programy',
+      'price': 'cena',
+      'time': 'čas'
     };
   }
 }

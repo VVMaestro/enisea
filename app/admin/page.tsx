@@ -6,8 +6,9 @@ import {AdminCard} from '../../components/shared/AdminCard';
 import {BrowserWindow} from '../../components/shared/BrowserWindow';
 import {WhoPhotoList} from '../../components/WhoPhotoList';
 import {WhoEditPhotoList} from '../../components/WhoEditPhotoList';
-import {AdvantagesEditor} from '../../components/AdvantagesEditor';
-import {ProgramsEditor} from '../../components/ProgramsEditor';
+import {AdvantagesEditor} from '../../components/Editor/AdvantagesEditor';
+import {ProgramsEditor} from '../../components/Editor/ProgramsEditor';
+import {TimeBasedOffersEditor} from '../../components/Editor/TimeBasedOffersEditor';
 
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
               lang={LANGUAGE.EN}
             />
           </AdminCard>
+
           <AdminCard title={'Text in english'}>
             <TextEditor
               placeholder={'Special Offer text in english'}
@@ -30,6 +32,7 @@ export default function Page() {
             />
           </AdminCard>
         </div>
+
         <div className='flex flex-col gap-2'>
           <AdminCard title={'Title in czeck'}>
             <TextEditor
@@ -39,6 +42,7 @@ export default function Page() {
               lang={LANGUAGE.CZ}
             />
           </AdminCard>
+
           <AdminCard title={'Text in czeck'}>
             <TextEditor
               placeholder={'Special Offer text in czeck'}
@@ -48,6 +52,7 @@ export default function Page() {
           </AdminCard>
         </div>
       </BrowserWindow>
+
       <BrowserWindow toolbar={'Who we are'}>
         <AdminCard title={'Text in english'}>
           <TextEditor
@@ -56,6 +61,7 @@ export default function Page() {
             lang={LANGUAGE.EN}
           />
         </AdminCard>
+
         <AdminCard title={'Text in czeck'}>
           <TextEditor
             placeholder={'Who we are text in czeck'}
@@ -64,9 +70,11 @@ export default function Page() {
           />
         </AdminCard>
       </BrowserWindow>
+
       <BrowserWindow>
         <WhoEditPhotoList />
       </BrowserWindow>
+
       <BrowserWindow toolbar={'Advantages'}>
         <AdminCard title={'Text in english'}>
           <TextEditor
@@ -75,6 +83,7 @@ export default function Page() {
             lang={LANGUAGE.EN}
           />
         </AdminCard>
+
         <AdminCard title={'Text in czeck'}>
           <TextEditor
             placeholder={'Advantages text in czeck'}
@@ -83,9 +92,11 @@ export default function Page() {
           />
         </AdminCard>
       </BrowserWindow>
+
       <BrowserWindow toolbar={'Advantages List'}>
         <AdvantagesEditor />
       </BrowserWindow>
+
       <BrowserWindow toolbar={'Programs'}>
         <AdminCard title={'Text in english'}>
           <TextEditor
@@ -94,6 +105,7 @@ export default function Page() {
             lang={LANGUAGE.EN}
           />
         </AdminCard>
+
         <AdminCard title={'Text in czeck'}>
           <TextEditor
             placeholder={'Programs text in czeck'}
@@ -102,8 +114,31 @@ export default function Page() {
           />
         </AdminCard>
       </BrowserWindow>
+
       <BrowserWindow toolbar={'Programs List'}>
         <ProgramsEditor />
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Time based offer'} >
+        <AdminCard title={'Text in english'}>
+          <TextEditor
+            placeholder={'Programs text in english'}
+            textTag={DATA_KEY.TIME_BASED_OFFER_TEXT}
+            lang={LANGUAGE.EN}
+          />
+        </AdminCard>
+
+        <AdminCard title={'Text in english'}>
+          <TextEditor
+            placeholder={'Programs text in czeck'}
+            textTag={DATA_KEY.TIME_BASED_OFFER_TEXT}
+            lang={LANGUAGE.CZ}
+          />
+        </AdminCard>
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Offers List'}>
+        <TimeBasedOffersEditor />
       </BrowserWindow>
     </main>
   );

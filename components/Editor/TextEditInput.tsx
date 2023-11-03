@@ -3,6 +3,8 @@
 import React, {ChangeEvent, ComponentPropsWithRef, useState} from 'react';
 import {Button} from '../shared/Button/Button';
 import {Textarea} from '../shared/Textarea';
+import {Fetcher} from '../../utils/Fetcher';
+import {Loading} from '../shared/Loading';
 
 interface IPropTypes extends ComponentPropsWithRef<'div'> {
   initialText?: string;
@@ -12,15 +14,20 @@ interface IPropTypes extends ComponentPropsWithRef<'div'> {
 }
 
 export function TextEditInput(props: IPropTypes) {
+  const fetcher = new Fetcher();
+
   const {textKey, view = 'multilined', placeholder = '', initialText = ''} = props;
 
   const [text, setText] = useState(initialText);
 
+  const [loading, setLoading] = useState(false);
+
   async function onClickHandler() {
-    await fetch('/api/text', {
-      method: 'POST',
-      body: JSON.stringify({key: textKey, text})
-    });
+    setLoading(true);
+
+    await fetcher.post('/api/text', {key: textKey, text});
+
+    setLoading(false);
   }
 
   function onChangeHandler(event: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>) {
@@ -30,26 +37,29 @@ export function TextEditInput(props: IPropTypes) {
   }
 
   return (
-    <div className='flex flex-col items-center gap-2 w-full'>
+    <article className='flex flex-col items-center gap-2 w-full relative'>
+      {loading && <Loading />}
+
       {
         view === 'multilined' ? <Textarea
-          placeholder={placeholder}
-          onChange={onChangeHandler}
-          value={text}
-        /> :
-        <input
-          type="text"
-          placeholder={placeholder}
-          className="input input-bordered max-w-xs"
-          value={text}
-          onChange={onChangeHandler}
-        />
+            placeholder={placeholder}
+            onChange={onChangeHandler}
+            value={text}
+          /> :
+          <input
+            type="text"
+            placeholder={placeholder}
+            className="input input-bordered max-w-xs"
+            value={text}
+            onChange={onChangeHandler}
+          />
       }
       <Button
         onClick={onClickHandler}
+        styleType={'secondary'}
       >
-        {'Сохранить текст'}
+        {'Save text'}
       </Button>
-    </div>
+    </article>
   );
 }

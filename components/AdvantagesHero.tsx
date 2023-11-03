@@ -7,6 +7,7 @@ import {ServerText} from './shared/ServerText';
 import {DATA_KEY} from '../consts';
 import {IAdvantage, IAdvantageData} from '../types/IAdvantage';
 import {ServerSideFetcher} from '../utils/ServerSideFetcher';
+import {Paragraph} from './shared/Paragraph';
 
 interface IProps {
   lang: Languages;
@@ -19,9 +20,9 @@ export async function AdvantagesHero({lang}: IProps) {
     <Hero id={'advantages'} variant={'column'}>
       <h2 className='text-5xl font-bold text-center mb-10'>{`${l10n('Advantages', lang)}`}</h2>
 
-      <div className='text-4xl text-center mb-20'>
+      <Paragraph>
         <ServerText tag={DATA_KEY.ADVANTAGES} lang={lang} />
-      </div>
+      </Paragraph>
 
       <ul className='list-none flex justify-center gap-4'>
         {

@@ -28,7 +28,7 @@ export const WhoEditPhotoList = () => {
 
   return (
     <div className='flex flex-col gap-2 items-center'>
-      <AdminCard title={'Staff Photo'}>
+      <AdminCard title={'Who we are Photo'}>
         <MediaWithDelete medias={medias} tiny actionCallback={fetchMedia} />
 
         {loading && <Loading />}

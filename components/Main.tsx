@@ -1,11 +1,12 @@
 import React from 'react';
 import {Hero} from './shared/Hero';
 import {Divider} from './shared/Divider';
-import {StaffHero} from './StaffHero';
+import {WhoWeAreHero} from './WhoWeAreHero';
 import {SpecialOffer} from './SpecialOffer';
 import {Languages} from '../types/PropTypes';
 import {AdvantagesHero} from './AdvantagesHero';
 import {ProgramsHero} from './ProgramsHero';
+import {TimeBaseOfferHero} from './TimeBaseOfferHero';
 
 export function Main({lang}: {lang: Languages}) {
   return (
@@ -14,7 +15,7 @@ export function Main({lang}: {lang: Languages}) {
 
       <Divider />
 
-      <StaffHero lang={lang} />
+      <WhoWeAreHero lang={lang} />
 
       <Divider />
 
@@ -23,6 +24,10 @@ export function Main({lang}: {lang: Languages}) {
       <Divider />
 
       <ProgramsHero lang={lang} />
+
+      <Divider />
+
+      <TimeBaseOfferHero lang={lang} />
     </main>
   );
 }

@@ -1,20 +1,20 @@
 'use client';
 
-import {Join} from './shared/Join';
-import {TextInput} from './shared/TextInput';
+import {Join} from '../shared/Join';
+import {TextInput} from '../shared/TextInput';
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {Divider} from './shared/Divider';
-import {Textarea} from './shared/Textarea';
-import {Button} from './shared/Button/Button';
-import {Fetcher} from '../utils/Fetcher';
-import {Uploader} from './shared/Uploader';
-import {AsyncFileReader} from '../utils/AsyncFileReader';
-import {Loading} from './shared/Loading';
-import {IProgramData} from '../types/IProgram';
-import {Popover} from './shared/Popover';
-import {Cross as CrossIcon} from './shared/Icons/Cross';
-import {Card} from './shared/Card';
-import {ProgramItem} from './ProgramItem';
+import {Divider} from '../shared/Divider';
+import {Textarea} from '../shared/Textarea';
+import {Button} from '../shared/Button/Button';
+import {Fetcher} from '../../utils/Fetcher';
+import {Uploader} from '../shared/Uploader';
+import {AsyncFileReader} from '../../utils/AsyncFileReader';
+import {Loading} from '../shared/Loading';
+import {IProgramData} from '../../types/IProgram';
+import {Popover} from '../shared/Popover';
+import {Cross as CrossIcon} from '../shared/Icons/Cross';
+import {Card} from '../shared/Card';
+import {ProgramItem} from '../ProgramItem';
 
 export const ProgramsEditor = () => {
   const [englishTitle, setEnglishTitle] = useState('');
@@ -193,11 +193,11 @@ export const ProgramsEditor = () => {
           ]}
         />
 
-        <Divider color={'sky'}/>
+        <Divider color={'sky'} />
 
         <Uploader onChange={onFileChangeHandler} />
 
-        <Divider color={'sky'}/>
+        <Divider color={'sky'} />
 
         <Button styleType={'secondary'} onClick={addProgramClickHandler}>Add program</Button>
       </article>

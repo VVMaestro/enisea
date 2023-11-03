@@ -1,18 +1,18 @@
 'use client';
 
-import {Button} from './shared/Button/Button';
-import {Fetcher} from '../utils/Fetcher';
-import {TextInput} from './shared/TextInput';
-import {Textarea} from './shared/Textarea';
-import {Join} from './shared/Join';
-import {Divider} from './shared/Divider';
+import {Button} from '../shared/Button/Button';
+import {Fetcher} from '../../utils/Fetcher';
+import {TextInput} from '../shared/TextInput';
+import {Textarea} from '../shared/Textarea';
+import {Join} from '../shared/Join';
+import {Divider} from '../shared/Divider';
 import React, {useEffect, useState} from 'react';
-import {IAdvantageData} from '../types/IAdvantage';
-import {InfoCard} from './shared/InfoCard';
-import {Card} from './shared/Card';
-import {Popover} from './shared/Popover';
-import {Cross as CrossIcon} from './shared/Icons/Cross';
-import {Loading} from './shared/Loading';
+import {IAdvantageData} from '../../types/IAdvantage';
+import {InfoCard} from '../shared/InfoCard';
+import {Card} from '../shared/Card';
+import {Popover} from '../shared/Popover';
+import {Cross as CrossIcon} from '../shared/Icons/Cross';
+import {Loading} from '../shared/Loading';
 
 export const AdvantagesEditor = () => {
   const [englishTitle, setEnglishTitle] = useState('');
