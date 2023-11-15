@@ -13,7 +13,7 @@ import {Loading} from '../shared/Loading';
 import {Popover} from '../shared/Popover';
 import {Cross as CrossIcon} from '../shared/Icons/Cross';
 import {Card} from '../shared/Card';
-import {TimeBasedOfferItem} from '../TimeBasedOfferItem';
+import {TimeBasedOfferItemView} from '../TimeBasedOfferItemView';
 import {LANGUAGE} from '../../consts';
 
 export const TimeBasedOffersEditor = () => {
@@ -121,7 +121,7 @@ export const TimeBasedOffersEditor = () => {
                   )}
                 >
                   <Card design={'compact'} bordered>
-                    <TimeBasedOfferItem
+                    <TimeBasedOfferItemView
                       cost={cost}
                       time={time}
                       imageSrc={photoURL}

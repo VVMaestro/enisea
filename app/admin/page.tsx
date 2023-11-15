@@ -9,10 +9,21 @@ import {WhoEditPhotoList} from '../../components/WhoEditPhotoList';
 import {AdvantagesEditor} from '../../components/Editor/AdvantagesEditor';
 import {ProgramsEditor} from '../../components/Editor/ProgramsEditor';
 import {TimeBasedOffersEditor} from '../../components/Editor/TimeBasedOffersEditor';
+import {SignUpLinkEditor} from '../../components/Editor/SignUpLinkEditor';
+import {SocialButtonsEditor} from '../../components/Editor/SocialButtonsEditor';
+import {Join} from '../../components/shared/Join';
+import {CompanyInfoEditor} from '../../components/Editor/CompanyInfoEditor';
+import {HomeVisitEditor} from '../../components/Editor/HomeVisitEditor';
 
 export default function Page() {
   return (
     <main className='flex flex-col items-center gap-6'>
+      <BrowserWindow toolbar={'Sign up link'}>
+        <AdminCard title={'Sign up link'}>
+          <SignUpLinkEditor />
+        </AdminCard>
+      </BrowserWindow>
+
       <BrowserWindow toolbar={'Special Offer'}>
         <div className='flex flex-col gap-2'>
           <AdminCard title={'Title in english'}>
@@ -139,6 +150,18 @@ export default function Page() {
 
       <BrowserWindow toolbar={'Offers List'}>
         <TimeBasedOffersEditor />
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Social buttons'}>
+        <SocialButtonsEditor />
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Company information'}>
+        <CompanyInfoEditor />
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Home visit'}>
+        <HomeVisitEditor />
       </BrowserWindow>
     </main>
   );

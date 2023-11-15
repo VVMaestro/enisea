@@ -1,4 +1,3 @@
-import React from 'react';
 import {ServerSideFetcher} from '../../utils/ServerSideFetcher';
 import {Languages} from '../../types/PropTypes';
 

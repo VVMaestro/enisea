@@ -28,6 +28,8 @@ export function PhotoUploader(props: IPropTypes) {
       if (!file) {
         return;
       }
+
+      setLoading(true);
       
       const mediaURL = await new AsyncFileReader().readFile(file);
 
@@ -48,6 +50,8 @@ export function PhotoUploader(props: IPropTypes) {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(true);
     }
   }
 
@@ -73,6 +77,7 @@ export function PhotoUploader(props: IPropTypes) {
           key={2}
           className={'join-item'}
           onClick={onClickHandler}
+          styleType={'secondary'}
         >
           {'Upload'}
         </Button>

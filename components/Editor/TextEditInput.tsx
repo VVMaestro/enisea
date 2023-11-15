@@ -5,18 +5,20 @@ import {Button} from '../shared/Button/Button';
 import {Textarea} from '../shared/Textarea';
 import {Fetcher} from '../../utils/Fetcher';
 import {Loading} from '../shared/Loading';
+import cn from 'classnames';
 
 interface IPropTypes extends ComponentPropsWithRef<'div'> {
   initialText?: string;
   textKey: string;
   placeholder?: string;
-  view?: 'onelined' | 'multilined'
+  view?: 'onelined' | 'multilined';
+  direction?: 'row' | 'column';
 }
 
 export function TextEditInput(props: IPropTypes) {
   const fetcher = new Fetcher();
 
-  const {textKey, view = 'multilined', placeholder = '', initialText = ''} = props;
+  const {textKey, view = 'multilined', direction = 'column', placeholder = '', initialText = ''} = props;
 
   const [text, setText] = useState(initialText);
 
@@ -37,7 +39,12 @@ export function TextEditInput(props: IPropTypes) {
   }
 
   return (
-    <article className='flex flex-col items-center gap-2 w-full relative'>
+    <article
+      className={cn('flex items-center gap-2 w-full relative', {
+        ['flex-col']: direction === 'column',
+        ['flex-row']: direction === 'row'
+      })}
+    >
       {loading && <Loading />}
 
       {
@@ -58,7 +65,7 @@ export function TextEditInput(props: IPropTypes) {
         onClick={onClickHandler}
         styleType={'secondary'}
       >
-        {'Save text'}
+        {'Save'}
       </Button>
     </article>
   );

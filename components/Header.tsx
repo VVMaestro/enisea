@@ -12,12 +12,13 @@ interface IProps {
 export function Header({lang}: IProps) {
   return (
     <header>
-      <nav className='navbar bg-base-100 fixed z-10'>
-        <div className='navbar-start'>
+      <nav className='navbar bg-base-100 fixed z-10 px-10'>
+        <div className='navbar-start flex gap-4 items-center min-w-fit'>
           <Logo />
+
           <BurgerMenu lang={lang} />
         </div>
-        <div className='navbar-end'>
+        <div className='navbar-end min-w-fit'>
           <LanguageSelect />
         </div>
       </nav>

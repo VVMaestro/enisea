@@ -3,7 +3,6 @@ import Image from 'next/image';
 import cn from 'classnames';
 import {l10n} from '../utils/l10n';
 import {Languages} from '../types/PropTypes';
-import {SignUpButton} from './SignUpButton';
 
 interface IProps extends ComponentPropsWithRef<'article'>{
   time: string;
@@ -13,7 +12,7 @@ interface IProps extends ComponentPropsWithRef<'article'>{
   compact?: boolean;
 }
 
-export const TimeBasedOfferItem = ({imageSrc, time, cost, lang, compact = false}: IProps) => {
+export const TimeBasedOfferItemView = ({imageSrc, time, cost, lang, compact = false}: IProps) => {
   return (
     <article className={cn('flex flex-col justify-center gap-2', {
       ['w-40']: compact,
@@ -32,8 +31,6 @@ export const TimeBasedOfferItem = ({imageSrc, time, cost, lang, compact = false}
       <p className='text-center'>{`${l10n('Price', lang)}: ${cost}`}</p>
 
       <p className='text-center'>{`${l10n('Time', lang)}: ${time} min.`}</p>
-
-      <SignUpButton lang={lang} styleType={'ghost'} />
     </article>
   );
 };

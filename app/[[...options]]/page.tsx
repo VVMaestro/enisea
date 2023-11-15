@@ -22,7 +22,7 @@ export default function Page({params}: IPropTypes) {
     <Fragment>
       <Header lang={lang} />
       <Main lang={lang} />
-      <Footer />
+      <Footer lang={lang} />
     </Fragment>
   )
 }

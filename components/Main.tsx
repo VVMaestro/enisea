@@ -7,6 +7,7 @@ import {Languages} from '../types/PropTypes';
 import {AdvantagesHero} from './AdvantagesHero';
 import {ProgramsHero} from './ProgramsHero';
 import {TimeBaseOfferHero} from './TimeBaseOfferHero';
+import {HomeWorkHero} from './HomeWorkHero';
 
 export function Main({lang}: {lang: Languages}) {
   return (
@@ -28,6 +29,10 @@ export function Main({lang}: {lang: Languages}) {
       <Divider />
 
       <TimeBaseOfferHero lang={lang} />
+
+      <Divider />
+
+      <HomeWorkHero lang={lang} />
     </main>
   );
 }

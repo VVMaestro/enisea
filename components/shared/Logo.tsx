@@ -1,4 +1,5 @@
 import React, {ComponentPropsWithRef} from 'react';
+import cn from 'classnames';
 
 interface PropTypes extends ComponentPropsWithRef<'svg'> {
   firstColor?: string;
@@ -15,9 +16,9 @@ export function Logo(props: PropTypes) {
 
   return (
     <svg
-      xmlns={'http://www.w3.org/2000/svg'} 
-      viewBox={'0 0 1024 432'}
-      width={150}
+      xmlns={'http://www.w3.org/2000/svg'}
+      viewBox={'180 0 660 432'}
+      width={100}
     >
       {
         withBackground && (
