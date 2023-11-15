@@ -37,7 +37,7 @@ const mapSocialToIcon = (social: Social) => {
 };
 
 const mapSocialToDataLink = (social: Social) => {
-  const map: Record<Social, keyof typeof DATA_KEY> = {
+  const map: Record<Social, string> = {
     'inst': DATA_KEY.INST_LINK,
     'facebook': DATA_KEY.FACEBOOK_LINK,
     'tikTok': DATA_KEY.TIK_TOK_LINK,
