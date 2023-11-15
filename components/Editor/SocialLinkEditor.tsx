@@ -5,7 +5,7 @@ import {ServerSideFetcher} from '../../utils/ServerSideFetcher';
 
 interface IProps extends ComponentPropsWithRef<'article'> {
   icon: ReactNode;
-  dataKey: keyof typeof DATA_KEY;
+  dataKey: string;
 }
 
 export const SocialLinkEditor = async ({icon, dataKey}: IProps) => {
