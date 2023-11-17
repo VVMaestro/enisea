@@ -14,6 +14,8 @@ import {SocialButtonsEditor} from '../../components/Editor/SocialButtonsEditor';
 import {Join} from '../../components/shared/Join';
 import {CompanyInfoEditor} from '../../components/Editor/CompanyInfoEditor';
 import {HomeVisitEditor} from '../../components/Editor/HomeVisitEditor';
+import {AddressEditor} from '../../components/Editor/AddressEditor';
+import {SpecialOfferPhoto} from '../../components/Editor/SpecialOfferPhoto';
 
 export default function Page() {
   return (
@@ -62,6 +64,10 @@ export default function Page() {
             />
           </AdminCard>
         </div>
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Special offer photo'}>
+        <SpecialOfferPhoto />
       </BrowserWindow>
 
       <BrowserWindow toolbar={'Who we are'}>
@@ -162,6 +168,10 @@ export default function Page() {
 
       <BrowserWindow toolbar={'Home visit'}>
         <HomeVisitEditor />
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Address'}>
+        <AddressEditor />
       </BrowserWindow>
     </main>
   );

@@ -41,7 +41,7 @@ export default function Page() {
   }
 
   return (
-    <main>
+    <main className={'h-screen flex justify-center items-center'}>
       <form className="card w-96 bg-neutral text-neutral-content" action={checkCredentials}>
         <div className="card-body items-center text-center">
           <h2 className="card-title">Log In</h2>

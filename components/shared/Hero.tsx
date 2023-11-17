@@ -2,13 +2,12 @@ import React, {ComponentPropsWithRef} from 'react';
 import cn from 'classnames';
 
 interface PropTypes extends ComponentPropsWithRef<'section'> {
-  title?: string;
   variant?: 'row' | 'column';
   overlay?: boolean;
 }
 
 export function Hero(props: PropTypes) {
-  const {className, children, id, variant = 'row', overlay = false} = props;
+  const {style, className, children, id, variant = 'row', overlay = false} = props;
 
   return (
     <section 
@@ -17,6 +16,7 @@ export function Hero(props: PropTypes) {
         'hero min-h-screen',
         className
       )}
+      style={style}
     >
       {
         overlay && (

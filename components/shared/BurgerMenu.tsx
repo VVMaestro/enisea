@@ -69,37 +69,37 @@ export function BurgerMenu(props: PropTypes) {
               href={'#services'}
               styleType={'ghost'}
             >
-              {`${l10n('Services', lang)}`}
+              {`${l10n('Massage programs', lang)}`}
             </LinkButton>
           </li>
           <li>
             <LinkButton
               onClick={onMenuItemClick}
               className={'content-center'}
-              href={'#'}
+              href={'#offers'}
               styleType={'ghost'}
             >
-              {`${l10n('Promotions', lang)}`}
+              {`${l10n('Offers', lang)}`}
             </LinkButton>
           </li>
           <li>
             <LinkButton
               onClick={onMenuItemClick}
               className={'content-center'}
-              href={'#'}
+              href={'#homeVisit'}
               styleType={'ghost'}
             >
-              {`${l10n('Team', lang)}`}
+              {`${l10n('Home visit', lang)}`}
             </LinkButton>
           </li>
           <li>
             <LinkButton
               onClick={onMenuItemClick}
               className={'content-center'}
-              href={'#'}
+              href={'#studio'}
               styleType={'ghost'}
             >
-              {`${l10n('Contacts', lang)}`}
+              {`${l10n('Studio', lang)}`}
             </LinkButton>
           </li>
         </ul>

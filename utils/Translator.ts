@@ -37,7 +37,10 @@ export class Translator {
       'massage programs': 'masážní programy',
       'price': 'cena',
       'time': 'čas',
-      'home visit': 'domácí návštěva'
+      'home visit': 'domácí návštěva',
+      'studio': 'studio',
+      'address': 'adresa',
+      'offers': 'nabídky'
     };
   }
 }

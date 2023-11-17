@@ -18,7 +18,7 @@ export const HomeWorkHero = async ({lang}: IProps) => {
   const mediaUrl = response?.medias?.[0] ? response?.medias?.[0].secureUrl : '#';
 
   return (
-    <Hero variant={'row'} lang={lang}>
+    <Hero variant={'row'} lang={lang} id={'homeVisit'}>
       <Image
         className={'max-w-lg rounded-lg shadow-2xl'}
         width={500}

@@ -8,6 +8,7 @@ import {AdvantagesHero} from './AdvantagesHero';
 import {ProgramsHero} from './ProgramsHero';
 import {TimeBaseOfferHero} from './TimeBaseOfferHero';
 import {HomeWorkHero} from './HomeWorkHero';
+import {AddressHero} from './AddressHero';
 
 export function Main({lang}: {lang: Languages}) {
   return (
@@ -33,6 +34,10 @@ export function Main({lang}: {lang: Languages}) {
       <Divider />
 
       <HomeWorkHero lang={lang} />
+
+      <Divider />
+
+      <AddressHero lang={lang} />
     </main>
   );
 }

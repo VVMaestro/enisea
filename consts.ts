@@ -14,14 +14,17 @@ export const DATA_KEY = {
   INST_LINK: 'instLink',
   COMPANY_INFO: 'companyInfo',
   HOME_VISIT_TITLE: 'homeVisitTitle',
-  HOME_VISIT_TEXT: 'homeVisitText'
+  HOME_VISIT_TEXT: 'homeVisitText',
+  ADDRESS_TEXT: 'addressText'
 } as const;
 
 export const PHOTO_TAG = {
   WHO_PHOTO: 'whoWeAre',
   PROGRAM_ICON: 'programIcon',
   TIME_BASED_OFFER_PHOTO: 'timeBasedOfferPhoto',
-  HOME_VISIT_PHOTO: 'homeVisitPhoto'
+  HOME_VISIT_PHOTO: 'homeVisitPhoto',
+  STUDIO_PHOTO: 'studioPhoto',
+  SPECIAL_OFFER_PHOTO: 'specialOfferPhoto'
 } as const;
 
 export const SESSION_COOKIE = 'session';

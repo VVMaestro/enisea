@@ -5,14 +5,21 @@ import {ServerText} from './shared/ServerText';
 import {Languages} from '../types/PropTypes';
 import {l10n} from '../utils/l10n';
 import {SignUpButton} from './SignUpButton';
+import {ServerSideFetcher} from '../utils/ServerSideFetcher';
+import {IMedia} from './shared/MediaList';
+import {PHOTO_TAG} from '../consts';
 
 interface IPropTypes {
   lang: Languages;
 }
 
-export function SpecialOffer({lang}: IPropTypes) {
+export async function SpecialOffer({lang}: IPropTypes) {
+  const response = await new ServerSideFetcher().get<{medias: IMedia[]}>(`/api/media?tag=${PHOTO_TAG.SPECIAL_OFFER_PHOTO}`);
+
+  const mediaUrl = response?.medias?.[0] ? response?.medias?.[0].secureUrl : '#';
+
   return (
-    <Hero className={'hero-image'} overlay={true}>
+    <Hero overlay={true} style={{backgroundImage: `url(${mediaUrl})`}}>
       <div className={'max-w-md'}>
         <h2 className={'mb-5 text-5xl font-bold'}>
           <ServerText lang={lang} tag={'specialOfferTitle'} />

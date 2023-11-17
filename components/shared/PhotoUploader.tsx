@@ -51,7 +51,7 @@ export function PhotoUploader(props: IPropTypes) {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   }
 
