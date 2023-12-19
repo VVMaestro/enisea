@@ -14,8 +14,8 @@ export const Carousel = (props: IProps) => {
     <ul
       className={
         cn('carousel rounded-box', {
-          ['carousel-vertical h-96 w-[32rem]']: design === 'vertical',
-          ['w-[32rem] h-80']: design === 'horizontal'
+          ['carousel-vertical h-96 lg:w-[32rem]']: design === 'vertical',
+          ['lg:w-[32rem] h-80']: design === 'horizontal'
         })
       }
     >

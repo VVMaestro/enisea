@@ -19,7 +19,7 @@ export function Header({lang}: IProps) {
           <BurgerMenu lang={lang} />
         </div>
         <div className='navbar-end min-w-fit'>
-          <LanguageSelect />
+          <LanguageSelect lang={lang} />
         </div>
       </nav>
     </header>

@@ -19,7 +19,7 @@ export const AddressHero = async ({lang}: IProps) => {
 
   return (
     <Hero variant={'column'} id={'studio'}>
-      <h2 className={'text-5xl font-bold py-6 text-left'}>
+      <h2 className={'text-3xl lg:text-5xl font-bold py-6 text-left'}>
         {l10n('Studio', lang)}
       </h2>
 

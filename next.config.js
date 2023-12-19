@@ -5,17 +5,14 @@ module.exports = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/dvcq3au2j/image/**',
+        pathname: '/**',
       },
       {
         protocol: 'http',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/dvcq3au2j/image/**',
+        pathname: '/**',
       },
     ],
-  },
-  experimental: {
-    serverActions: true
   }
 }

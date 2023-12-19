@@ -20,7 +20,7 @@ export const HomeWorkHero = async ({lang}: IProps) => {
   return (
     <Hero variant={'row'} lang={lang} id={'homeVisit'}>
       <Image
-        className={'max-w-lg rounded-lg shadow-2xl'}
+        className={'lg:max-w-lg rounded-lg shadow-2xl'}
         width={500}
         height={0}
         src={mediaUrl}
@@ -28,7 +28,7 @@ export const HomeWorkHero = async ({lang}: IProps) => {
       />
 
       <div>
-        <h2 className={'text-5xl font-bold py-6 text-left'}>
+        <h2 className={'text-3xl lg:text-5xl font-bold py-6 text-center lg:text-left'}>
           {<ServerText tag={DATA_KEY.HOME_VISIT_TITLE} lang={lang} />}
         </h2>
 

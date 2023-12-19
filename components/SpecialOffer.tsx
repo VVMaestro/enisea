@@ -25,7 +25,7 @@ export async function SpecialOffer({lang}: IPropTypes) {
           <ServerText lang={lang} tag={'specialOfferTitle'} />
         </h2>
 
-        <p className={'mb-5'}>
+        <p className={'mb-5 text-lg lg:text-2xl'}>
           <ServerText lang={lang} tag={'specialOffer'} />
         </p>
 

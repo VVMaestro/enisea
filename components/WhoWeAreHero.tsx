@@ -9,7 +9,7 @@ import {l10n} from '../utils/l10n';
 export async function WhoWeAreHero({lang}: {lang: Languages}) {
   return (
     <Hero id={'who'} variant={'column'}>
-      <h2 className={'text-5xl font-bold py-6'}>
+      <h2 className={'text-3xl lg:text-5xl font-bold py-6'}>
         {`${l10n('Who we are', lang)}?`}
       </h2>
 

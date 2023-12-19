@@ -19,7 +19,7 @@ export const ProgramsHero = async ({lang}: IProps) => {
 
   return (
     <Hero variant={'column'} id={'services'}>
-      <h2 className='text-5xl font-bold text-center mb-10'>{l10n('Massage programs', lang)}</h2>
+      <h2 className='text-3xl lg:text-5xl font-bold text-center mb-10'>{l10n('Massage programs', lang)}</h2>
 
       <Paragraph>
         <ServerText tag={DATA_KEY.PROGRAMS} lang={lang} />
