@@ -8,6 +8,7 @@ import {SignUpButton} from './SignUpButton';
 import {ServerSideFetcher} from '../utils/ServerSideFetcher';
 import {IMedia} from './shared/MediaList';
 import {PHOTO_TAG} from '../consts';
+import {Logo} from './shared/Logo';
 
 interface IPropTypes {
   lang: Languages;
@@ -19,7 +20,9 @@ export async function SpecialOffer({lang}: IPropTypes) {
   const mediaUrl = response?.medias?.[0] ? response?.medias?.[0].secureUrl : '';
 
   return (
-    <Hero overlay={true} style={{backgroundImage: `url(${mediaUrl})`}}>
+    <Hero overlay={true} style={{backgroundImage: `url(${mediaUrl})`}} gapSize={'lg'}>
+      <Logo className={'lg:w-1/3 w-2/3'} />
+
       <div className={'max-w-md'}>
         <h2 className={'mb-5 text-5xl font-bold'}>
           <ServerText lang={lang} tag={'specialOfferTitle'} />

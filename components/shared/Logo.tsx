@@ -11,7 +11,8 @@ export function Logo(props: PropTypes) {
   const {
     firstColor = '#312a74',
     secondColor = '#fff',
-    withBackground = false
+    withBackground = false,
+    className
   } = props;
 
   return (
@@ -19,6 +20,7 @@ export function Logo(props: PropTypes) {
       xmlns={'http://www.w3.org/2000/svg'}
       viewBox={'180 0 660 432'}
       width={100}
+      className={className}
     >
       {
         withBackground && (

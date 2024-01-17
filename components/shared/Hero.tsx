@@ -4,10 +4,19 @@ import cn from 'classnames';
 interface PropTypes extends ComponentPropsWithRef<'section'> {
   variant?: 'row' | 'column';
   overlay?: boolean;
+  gapSize?: 'md' | 'lg';
 }
 
 export function Hero(props: PropTypes) {
-  const {style, className, children, id, variant = 'row', overlay = false} = props;
+  const {
+    style,
+    className,
+    children,
+    id,
+    variant = 'row',
+    overlay = false,
+    gapSize
+  } = props;
 
   return (
     <section 
@@ -28,7 +37,8 @@ export function Hero(props: PropTypes) {
           'hero-content flex-col lg:flex-row text-center text-neutral-content w-full',
           {
             ['lg:flex-col']: variant === 'column',
-            ['gap-7']: variant === 'row'
+            ['gap-x-7']: variant === 'row' && gapSize === 'md',
+            ['gap-x-24']: variant === 'row' && gapSize === 'lg'
           }
         )}
       >
