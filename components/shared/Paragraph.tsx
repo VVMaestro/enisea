@@ -9,11 +9,11 @@ interface IProps extends ComponentPropsWithRef<'p'> {
 export const Paragraph = ({children, textPlacement = 'center', withMargin = true}: IProps) => {
   return (
     <p
-      className={cn('text-xl lg:text-4xl', {
+      className={cn('text-xl lg:text-4xl text-center', {
         ['mb-20']: withMargin,
-        ['text-center']: textPlacement === 'center',
-        ['text-right']: textPlacement === 'right',
-        ['text-left']: textPlacement === 'left'
+        ['lg:text-center']: textPlacement === 'center',
+        ['lg:text-right']: textPlacement === 'right',
+        ['lg:text-left']: textPlacement === 'left'
       })}
     >
       {children}

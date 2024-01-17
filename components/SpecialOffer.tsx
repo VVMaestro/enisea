@@ -16,7 +16,7 @@ interface IPropTypes {
 export async function SpecialOffer({lang}: IPropTypes) {
   const response = await new ServerSideFetcher().get<{medias: IMedia[]}>(`/api/media?tag=${PHOTO_TAG.SPECIAL_OFFER_PHOTO}`);
 
-  const mediaUrl = response?.medias?.[0] ? response?.medias?.[0].secureUrl : '#';
+  const mediaUrl = response?.medias?.[0] ? response?.medias?.[0].secureUrl : '';
 
   return (
     <Hero overlay={true} style={{backgroundImage: `url(${mediaUrl})`}}>

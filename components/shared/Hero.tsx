@@ -25,7 +25,7 @@ export function Hero(props: PropTypes) {
       }
       <div 
         className={cn(
-          'hero-content flex-col lg:flex-row text-center text-neutral-content',
+          'hero-content flex-col lg:flex-row text-center text-neutral-content w-full',
           {
             ['lg:flex-col']: variant === 'column',
             ['gap-7']: variant === 'row'
