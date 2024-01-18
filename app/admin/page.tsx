@@ -20,9 +20,18 @@ import {SpecialOfferPhoto} from '../../components/Editor/SpecialOfferPhoto';
 export default function Page() {
   return (
     <main className='flex flex-col items-center gap-6'>
-      <BrowserWindow toolbar={'Sign up link'}>
+      <BrowserWindow toolbar={'Links'}>
         <AdminCard title={'Sign up link'}>
           <SignUpLinkEditor />
+        </AdminCard>
+
+        <AdminCard title={'Phone number'}>
+          <TextEditor
+            inputType={'text'}
+            placeholder={'+79239438123'}
+            textTag={DATA_KEY.PHONE_NUMBER}
+            lang={LANGUAGE.EN}
+          />
         </AdminCard>
       </BrowserWindow>
 

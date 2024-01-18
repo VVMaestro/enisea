@@ -15,7 +15,8 @@ export const DATA_KEY = {
   COMPANY_INFO: 'companyInfo',
   HOME_VISIT_TITLE: 'homeVisitTitle',
   HOME_VISIT_TEXT: 'homeVisitText',
-  ADDRESS_TEXT: 'addressText'
+  ADDRESS_TEXT: 'addressText',
+  PHONE_NUMBER: 'phoneNumber'
 } as const;
 
 export const PHOTO_TAG = {
