@@ -16,6 +16,7 @@ import {CompanyInfoEditor} from '../../components/Editor/CompanyInfoEditor';
 import {HomeVisitEditor} from '../../components/Editor/HomeVisitEditor';
 import {AddressEditor} from '../../components/Editor/AddressEditor';
 import {SpecialOfferPhoto} from '../../components/Editor/SpecialOfferPhoto';
+import {AdvantagesPhoto} from '../../components/Editor/AdvantagesPhoto';
 
 export default function Page() {
   return (
@@ -121,6 +122,10 @@ export default function Page() {
 
       <BrowserWindow toolbar={'Advantages List'}>
         <AdvantagesEditor />
+      </BrowserWindow>
+
+      <BrowserWindow toolbar={'Advantages photo'}>
+        <AdvantagesPhoto />
       </BrowserWindow>
 
       <BrowserWindow toolbar={'Programs'}>

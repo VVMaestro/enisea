@@ -25,7 +25,8 @@ export const PHOTO_TAG = {
   TIME_BASED_OFFER_PHOTO: 'timeBasedOfferPhoto',
   HOME_VISIT_PHOTO: 'homeVisitPhoto',
   STUDIO_PHOTO: 'studioPhoto',
-  SPECIAL_OFFER_PHOTO: 'specialOfferPhoto'
+  SPECIAL_OFFER_PHOTO: 'specialOfferPhoto',
+  ADVANTAGES_PHOTO: 'advantagesPhoto',
 } as const;
 
 export const SESSION_COOKIE = 'session';
